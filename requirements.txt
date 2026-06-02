@@ -1,0 +1,6 @@
+flask
+python-dotenv
+groq
+youtube-transcript-api
+python-docx
+reportlab
