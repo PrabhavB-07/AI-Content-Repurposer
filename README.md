@@ -120,7 +120,7 @@ AI-Content-Repurposer/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/AI-Content-Repurposer.git
+git clone https://github.com/PrabhavB-07/AI-Content-Repurposer.git
 ```
 
 ### Enter Project Folder
@@ -159,7 +159,13 @@ http://127.0.0.1:5000
 
 ## 📸 Screenshots
 
-Add screenshots here after uploading images.
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+### Generated Content
+
+![Output](screenshots/output.png)
 
 ---
 
