@@ -36,12 +36,12 @@ def get_youtube_transcript(url):
     if not video_id:
         raise Exception("Invalid YouTube URL")
 
-    transcript = YouTubeTranscriptApi().fetch(
+    transcript = YouTubeTranscriptApi.get_transcript(
         video_id
     )
 
     text = " ".join(
-        [item.text for item in transcript]
+        [item["text"] for item in transcript]
     )
 
     return text
@@ -69,10 +69,23 @@ def generate_content(
 
         except Exception as e:
 
-            return f"❌ Transcript Error:\n\n{str(e)}"
+            return f"""
+INSTAGRAM:
+Transcript Error: {str(e)}
+
+LINKEDIN:
+Transcript Error: {str(e)}
+
+TWITTER:
+Transcript Error: {str(e)}
+
+BLOG:
+Transcript Error: {str(e)}
+"""
 
     prompt = f"""
 You are a professional content repurposing expert.
+
 Selected Tone:
 {tone}
 
@@ -122,4 +135,16 @@ Content:
 
     except Exception as e:
 
-        return f"❌ ERROR:\n{str(e)}"
+        return f"""
+INSTAGRAM:
+ERROR: {str(e)}
+
+LINKEDIN:
+ERROR: {str(e)}
+
+TWITTER:
+ERROR: {str(e)}
+
+BLOG:
+ERROR: {str(e)}
+"""
