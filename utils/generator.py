@@ -1,153 +1,81 @@
 import os
-import re
-
 from dotenv import load_dotenv
 from groq import Groq
-from youtube_transcript_api import YouTubeTranscriptApi
+from utils.youtube import get_transcript, get_video_id
 
 load_dotenv()
 
-client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
-)
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
-def get_video_id(url):
-
-    patterns = [
-        r"v=([0-9A-Za-z_-]{11})",
-        r"youtu\.be\/([0-9A-Za-z_-]{11})"
-    ]
-
-    for pattern in patterns:
-
-        match = re.search(pattern, url)
-
-        if match:
-            return match.group(1)
-
-    return None
+def _is_youtube(text: str) -> bool:
+    return "youtube.com" in text or "youtu.be" in text
 
 
-def get_youtube_transcript(url):
-
-    video_id = get_video_id(url)
-
-    if not video_id:
-        raise Exception("Invalid YouTube URL")
-
-    try:
-
-        transcript = YouTubeTranscriptApi().fetch(video_id)
-
-        text = " ".join(
-            [item.text for item in transcript]
-        )
-
-        return text
-
-    except Exception as e:
-        raise Exception(f"Transcript not available: {str(e)}")
+def _error_result(msg: str) -> str:
+    """Saari sections mein same error dikhaao."""
+    return (
+        f"INSTAGRAM:\n{msg}\n"
+        f"LINKEDIN:\n{msg}\n"
+        f"TWITTER:\n{msg}\n"
+        f"BLOG:\n{msg}"
+    )
 
 
-def generate_content(
-    user_input,
-    tone
-):
-    content = user_input
+def generate_content(user_input: str, tone: str) -> str:
 
-    if (
-        "youtube.com" in user_input
-        or
-        "youtu.be" in user_input
-    ):
-
+    # ── Input decide karo ──
+    if _is_youtube(user_input):
         try:
-
-            content = get_youtube_transcript(
-                user_input
-            )
-
-            content = content[:8000]
-
+            content = get_transcript(user_input)
+            content = content[:8000]  # token limit ke liye
         except Exception as e:
+            friendly = (
+                f"⚠️ YouTube transcript fetch nahi hua.\n\n"
+                f"Reason: {str(e)}\n\n"
+                f"💡 Solution: YouTube URL ki jagah seedha topic paste karo.\n"
+                f"   Example: 'Python programming for beginners'"
+            )
+            return _error_result(friendly)
+    else:
+        content = user_input.strip()
 
-            return f"""
-INSTAGRAM:
-Transcript Error: {str(e)}
+    if not content:
+        return _error_result("⚠️ Koi content nahi mila. Topic ya URL daalo.")
 
-LINKEDIN:
-Transcript Error: {str(e)}
+    # ── Prompt ──
+    prompt = f"""You are a professional content repurposing expert.
 
-TWITTER:
-Transcript Error: {str(e)}
+Tone: {tone}
+Make ALL content match this tone exactly.
 
-BLOG:
-Transcript Error: {str(e)}
-"""
-
-    prompt = f"""
-You are a professional content repurposing expert.
-
-Selected Tone:
-{tone}
-
-Make all content match this tone.
-
-IMPORTANT:
-
-Return response ONLY in this exact format.
+STRICT FORMAT RULES:
+- Return ONLY the 4 sections below
+- No markdown, no bold, no extra headings
+- No text outside these 4 sections
+- Each section must have real content
 
 INSTAGRAM:
-<instagram post>
-
+<write instagram post with emojis and hashtags>
 LINKEDIN:
-<linkedin post>
-
+<write professional linkedin post>
 TWITTER:
-<twitter thread>
-
+<write twitter thread, number each tweet like 1/, 2/, 3/>
 BLOG:
-<blog post>
+<write blog post with intro, body, conclusion>
 
-Do not add any extra headings.
-Do not use markdown.
-Do not use bold text.
-Do not write anything outside these sections.
-
-Content:
-
+Content to repurpose:
 {content}
 """
 
     try:
-
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            temperature=0.7,
-            max_tokens=1200
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.75,
+            max_tokens=2000,
         )
-
         return response.choices[0].message.content
 
     except Exception as e:
-
-        return f"""
-INSTAGRAM:
-ERROR: {str(e)}
-
-LINKEDIN:
-ERROR: {str(e)}
-
-TWITTER:
-ERROR: {str(e)}
-
-BLOG:
-ERROR: {str(e)}
-"""
+        return _error_result(f"❌ AI generation error: {str(e)}")

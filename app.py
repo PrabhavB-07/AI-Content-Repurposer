@@ -15,19 +15,24 @@ def home():
 def generate():
     try:
         data       = request.get_json()
-        user_input = data.get("url")
-        tone       = data.get("tone")
-        result     = generate_content(user_input, tone)
+        user_input = data.get("url", "").strip()
+        tone       = data.get("tone", "Professional")
+
+        if not user_input:
+            return jsonify({"result": _error_result("⚠️ Kuch toh daalo — topic ya URL!")}), 400
+
+        result = generate_content(user_input, tone)
         return jsonify({"result": result})
+
     except Exception as e:
-        return jsonify({"result": f"ERROR: {str(e)}"})
+        return jsonify({"result": _error_result(f"Server error: {str(e)}")}), 500
 
 
 @app.route("/export/pdf", methods=["POST"])
 def export_pdf():
     try:
-        data    = request.get_json()
-        content = data.get("content", "")
+        data      = request.get_json()
+        content   = data.get("content", "")
         pdf_bytes = generate_pdf(content)
         return send_file(
             io.BytesIO(pdf_bytes),
@@ -42,8 +47,8 @@ def export_pdf():
 @app.route("/export/docx", methods=["POST"])
 def export_docx():
     try:
-        data    = request.get_json()
-        content = data.get("content", "")
+        data       = request.get_json()
+        content    = data.get("content", "")
         docx_bytes = generate_docx(content)
         return send_file(
             io.BytesIO(docx_bytes),
@@ -53,6 +58,15 @@ def export_docx():
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+def _error_result(msg: str) -> str:
+    return (
+        f"INSTAGRAM:\n{msg}\n"
+        f"LINKEDIN:\n{msg}\n"
+        f"TWITTER:\n{msg}\n"
+        f"BLOG:\n{msg}"
+    )
 
 
 if __name__ == "__main__":
