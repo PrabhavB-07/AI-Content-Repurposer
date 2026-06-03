@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
-from utils.youtube import get_transcript, get_video_id
 
 load_dotenv()
 
@@ -13,7 +12,6 @@ def _is_youtube(text: str) -> bool:
 
 
 def _error_result(msg: str) -> str:
-    """Saari sections mein same error dikhaao."""
     return (
         f"INSTAGRAM:\n{msg}\n"
         f"LINKEDIN:\n{msg}\n"
@@ -24,26 +22,18 @@ def _error_result(msg: str) -> str:
 
 def generate_content(user_input: str, tone: str) -> str:
 
-    # ── Input decide karo ──
     if _is_youtube(user_input):
-        try:
-            content = get_transcript(user_input)
-            content = content[:8000]  # token limit ke liye
-        except Exception as e:
-            friendly = (
-                f"⚠️ YouTube transcript fetch nahi hua.\n\n"
-                f"Reason: {str(e)}\n\n"
-                f"💡 Solution: YouTube URL ki jagah seedha topic paste karo.\n"
-                f"   Example: 'Python programming for beginners'"
-            )
-            return _error_result(friendly)
-    else:
-        content = user_input.strip()
+        return _error_result(
+            "YouTube URLs are not supported in the hosted version.\n\n"
+            "Please copy the video description or paste the topic directly.\n\n"
+            "Example: 'How to learn Python programming from scratch'"
+        )
+
+    content = user_input.strip()
 
     if not content:
-        return _error_result("⚠️ Koi content nahi mila. Topic ya URL daalo.")
+        return _error_result("Please enter a topic or paste your article text.")
 
-    # ── Prompt ──
     prompt = f"""You are a professional content repurposing expert.
 
 Tone: {tone}
@@ -53,7 +43,7 @@ STRICT FORMAT RULES:
 - Return ONLY the 4 sections below
 - No markdown, no bold, no extra headings
 - No text outside these 4 sections
-- Each section must have real content
+- Each section must have real, high quality content
 
 INSTAGRAM:
 <write instagram post with emojis and hashtags>
@@ -62,7 +52,7 @@ LINKEDIN:
 TWITTER:
 <write twitter thread, number each tweet like 1/, 2/, 3/>
 BLOG:
-<write blog post with intro, body, conclusion>
+<write full blog post with intro, body and conclusion>
 
 Content to repurpose:
 {content}
@@ -78,4 +68,4 @@ Content to repurpose:
         return response.choices[0].message.content
 
     except Exception as e:
-        return _error_result(f"❌ AI generation error: {str(e)}")
+        return _error_result(f"AI generation failed: {str(e)}")

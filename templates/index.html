@@ -1,3 +1,1142 @@
+Claude finished the response
+
+is ui me ek chagnge karna ahai 2nd imag pe dekh jispe professional , funny ye sab likha hai use and ooore ui ko premium banana hai baa dega agar mai code bheju
+Jun 2
+
+Haan bilkul! Code bhejo, main UI ko premium bana deta hoon. Kya changes chahiye wo samajh gaya:
+
+    Tone selector (Professional/Viral/Funny etc.) ko premium style dena hai
+    Poori UI ko upgrade karna hai
+
+Code bhejo! 🚀
+
+ye html hai iske baad mai script.js bhi bhejta hu pehel isko de upgrade karke next level
+Jun 2
+Reading frontend design skill
+
+Ab main isko next-level premium UI mein upgrade karta hoon!
+
+Ab main full premium HTML bana raha hoon:
+Ran 2 commands, read a file
+
+Ye raha premium upgraded index.html! Ab bhejo script.js bhi — main usse bhi clean kar deta hoon.
+
+Kya kya badla:
+
+    Animated grid background — subtle blueprint-style dots/lines
+    Ambient glow orbs — blue, purple, cyan — float karte hain background mein
+    Tone selector — boring <select> hat gaya, ab pill-style toggle buttons hain emojis ke saath — Professional 💼, Viral 🔥, Funny 😄 etc. Click karo toh highlight hota hai
+    Typography — Syne (bold futuristic headings) + DM Sans (clean body) — premium feel
+    Input field — icon ke saath, smooth focus glow
+    Action buttons — gradient primary button + ghost secondary buttons
+    Content cards — platform badges (Instagram pink, LinkedIn blue, Twitter cyan, Blog purple) with smooth fade-in animation
+    Loading state — spinner ke saath proper loading bar
+
+script.js bhejo, main woh bhi upgrade kar deta hoon! 🚀
+Index
+Code · HTML 
+
+window.onload = function () {
+    const generateBtn =
+    document.getElementById("generate-btn");
+    const inputBox =
+    document.getElementById("content-url");
+    const toneBox =
+document.getElementById("tone");
+    const loading =
+    document.getElementById("loading");
+    generateBtn.addEventListener(
+        "click",
+        async function () {
+            const input =
+            inputBox.value.trim();
+            const tone =
+toneBox.value;
+            if (!input) {
+                alert("Enter a topic first!");
+                return;
+            }
+            generateBtn.disabled = true;
+            generateBtn.innerHTML =
+            "⏳ Generating...";
+            loading.style.display =
+            "block";
+            try {
+                const response =
+                await fetch("/generate", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+                    body: JSON.stringify({
+    url: input,
+    tone: tone
+})
+                });
+                const data =
+                await response.json();
+                const result =
+                data.result;
+                document.getElementById(
+                    "instagram-card"
+                ).style.display = "block";
+                document.getElementById(
+                    "linkedin-card"
+                ).style.display = "block";
+                document.getElementById(
+                    "twitter-card"
+                ).style.display = "block";
+                document.getElementById(
+                    "blog-card"
+                ).style.display = "block";
+                const instagram =
+                result.match(
+                    /INSTAGRAM:(.*?)LINKEDIN:/s
+                );
+                const linkedin =
+                result.match(
+                    /LINKEDIN:(.*?)TWITTER:/s
+                );
+                const twitter =
+                result.match(
+                    /TWITTER:(.*?)BLOG:/s
+                );
+                const blog =
+                result.match(
+                    /BLOG:(.*)/s
+                );
+                document.getElementById(
+                    "instagram-content"
+                ).innerText =
+                instagram
+                ? instagram[1].trim()
+                : "No content";
+                document.getElementById(
+                    "linkedin-content"
+                ).innerText =
+                linkedin
+                ? linkedin[1].trim()
+                : "No content";
+                document.getElementById(
+                    "twitter-content"
+                ).innerText =
+                twitter
+                ? twitter[1].trim()
+                : "No content";
+                document.getElementById(
+                    "blog-content"
+                ).innerText =
+                blog
+                ? blog[1].trim()
+                : "No content";
+            }
+            catch (error) {
+                alert(
+                    "Error: " + error
+                );
+            }
+            loading.style.display =
+            "none";
+            generateBtn.disabled =
+            false;
+            generateBtn.innerHTML =
+            "🚀 Generate Content";
+        }
+    );
+};
+Jun 2
+
+Clean aur upgraded script.js ready hai!
+Created a file, ran a command, read a file
+
+Ye lo upgraded script.js! Kya kya improve hua:
+
+Functionality upgrades:
+
+    Toast notifications — alert() hat gaya, ab bottom-right mein smooth animated toast aata hai — green for success, yellow for warning, red for error
+    Enter key support — input mein Enter dabao, generate ho jaayega
+    Server error handling — agar backend 500 ya 404 de toh proper message milega
+    finally block — chahe error aaye ya na aaye, button aur loading hamesha reset hoga
+    Auto scroll — content generate hone ke baad results pe smooth scroll
+    Inline spinner — button ke andar bhi spinner aata hai generating ke waqt
+
+Code quality:
+
+    fillCard() aur hideAllCards() helper functions — clean aur reusable
+    Sab kuch modular hai, easy to extend
+
+Dono files replace kar do apne Flask project mein — templates/index.html aur static/script.js — aur done! 🎯
+Script
+JS 
+
+bro ui premium hai kya ye mujhe kuch maja ni aaya dekh ke
+Jun 2
+
+Sahi baat hai, let me actually show you what it looks like first!
+
+Theek hai bhai, pehle live preview dikha deta hoon — dekh aur batao kaisa laga, phir redesign karte hain agar pasand na aaya!
+
+V
+Connecting to visualize...
+
+Ye dekh — yahi toh banega browser mein.
+
+Ab seedha bol bhai — kaunsa vibe chahiye?
+
+    Glassmorphism — frosted glass cards, blurry backgrounds, luxury feel
+    Minimal/Clean — white space heavy, Apple-style, sab kuch simple aur sharp
+    Neon/Cyberpunk — electric colors, glow effects, hacker aesthetic
+    Editorial/Magazine — bold typography, asymmetric layout, designer feel
+
+Aur color wise — dark rakhna hai ya light/white version bhi try karein?
+
+bro jo sabse jyada bestembest gaandfaad ho uska html code de user ki dekhte hi dand fatt jaye jo
+Jun 2
+
+😂 Samajh gaya bhai — full gaandfaad premium UI chahiye. Abhi banata hoon!
+Write the full gaandfaad premium HTML
+
+Ab live preview dekh:
+Presented file
+
+V
+Connecting to visualize...
+
+Ye le bhai — gaandfaad edition ready hai 🔥
+
+Kya daala is baar jo pehle nahi tha:
+
+    Bebas Neue font — giant bold title, dekhte hi dang lagta hai
+    Animated shimmer gradient on the title — blue → purple → cyan — hamesha move karta rehta hai
+    4 mesh gradient orbs — slowly drift karte hain background mein
+    Subtle grid overlay — depth aata hai
+    Card top glow bar — ek thin glowing line card ke upar
+    Tone pills — gradient active state with purple glow on selection
+    Generate button — proper glow shadow with inner highlight shine
+    Staggered slide-up animation on result cards
+
+templates/index.html replace kar do — bas! 💪
+Index
+Code · HTML 
+
+bro text jyda alight ni lag ra
+Jun 2
+
+Haan bhai, text ka alignment aur readability theek karni hai — abhi body text left-aligned hai but cards ke andar spacing aur line-height ko premium feel dena hai. Fix karta hoon!
+Viewed a file, edited a file, read a file
+
+3 cheezein fix ki:
+
+    Color #64748b (bahut dim tha) →
+    #cbd5e1 (ab clearly readable hai)
+    Font size 14px → 14.5px + letter-spacing slight badhaya — text premium lagega
+    Padding thodi aur generous ki + card ke andar ek subtle top border line add ki
+
+Replace kar do aur dekho — ab text zyada aligned aur clean lagega! 🎯
+Index
+Code · HTML 
+
+ye jo arha instagram , linkedin ,twitwer ye ye chote ni lag rhe kuch
+Jun 2
+
+Haan bhai samajh gaya — cards ke beech bahut zyada gap hai, content area unnecessarily bada lag raha hai. Tight aur compact karta hoon!
+Edited 4 files, read a file
+
+Le bhai! 3 changes kiye:
+
+    Content area — max-height: 160px set kiya, agar zyada text ho toh scroll hoga — card chota rahega
+    Padding kam kiya — header 15px se 11px, body 22px se 14px
+    Card margin 14px se 10px — sab kuch tighter dikhega
+
+Ab 4 cards ek saath screen pe fit honge bina scroll kiye! 🎯
+Index
+Code · HTML 
+
+Phase 4 — Export Features
+Abhi Download TXT karta hai.
+Ab add kar sakte hain:
+
+📄 Export PDF
+📑 Export DOCX
+
+Client ko direct PDF ya Word file mil jayegi.
+
+ye bhi karte hai is project me add iske liye meri html, scrip.js and app.py file lagegi 
+
+PDF + DOCX Export ke liye mainly ye files lagenge:
+
+index.html
+script.js
+app.py
+
+Aur ek nayi file banana best rahega:
+
+utils/export.py
+
+Aur requirements.txt me:
+
+python-docx
+reportlab
+
+Bas. 🔥
+Total:
+
+index.html
+script.js
+app.py
+utils/export.py
+requirements.txt
+
+Jun 2
+
+Chal bhai, sab files ek saath bana deta hoon! Pehle app.py bhej — uski existing routes dekh ke properly integrate karunga.
+
+Kya app.py ka code hai tumhare paas?
+
+from flask import Flask, render_template, request, jsonify
+from utils.generator import generate_content
+app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("index.html")
+@app.route("/generate", methods=["POST"])
+def generate():
+    try:
+        data = request.get_json()
+        user_input = data.get("url")
+        tone = data.get("tone")
+        result = generate_content(
+    user_input,
+    tone
+)
+        return jsonify({
+            "result": result
+        })
+    except Exception as e:
+        return jsonify({
+            "result": f"ERROR: {str(e)}"
+        })
+if __name__ == "__main__":
+    app.run(debug=True)
+Jun 2
+
+Perfect! Sab kuch ek saath bana deta hoon! 🔥
+Viewed 3 files
+
+Sab kuch dekh liya. Ab ek ek file banata hoon!
+Edited 2 files, viewed a file
+
+Ab utils/export.py banata hoon:
+Export utility for PDF and DOCX generation
+
+Ab updated app.py:
+Created 2 files, ran a command, read a file
+
+Done bhai! Ye kar project mein:
+
+Step 1 — export.py ko utils/ folder mein daalo:
+
+utils/export.py   ← ye nayi file
+utils/generator.py  ← pehle se hai
+
+Step 2 — app.py replace karo
+
+Step 3 — templates/index.html replace karo
+
+Step 4 — Dependencies install karo:
+bash
+
+pip install python-docx reportlab
+
+Kaise kaam karta hai:
+
+    User "Export PDF" click kare → frontend /export/pdf pe POST karta hai saara generated text
+    export.py ka generate_pdf() ReportLab se styled PDF banata hai — title, sections, clean typography sab
+    Same cheez DOCX ke liye generate_docx() python-docx se karta hai
+    Flask send_file() se direct download hota hai browser mein
+
+Buttons sirf tab active honge jab content generate ho chuka hoga, warna toast dikhaega "Generate content first!" 🔥
+App
+PY 
+Export
+PY 
+Index
+Code · HTML 
+Requirements
+TXT 
+
+requirement.txt me ye bhi hai
+Jun 2
+
+Koi baat nahi, bas requirements.txt mein 2 lines aur add karo:
+Edited a file, read a file
+
+Le bhai — updated requirements.txt ready hai. Bas apne project wale file se replace karo aur terminal mein run karo:
+bash
+
+pip install -r requirements.txt
+
+Sab packages ek saath install ho jayenge! 🔥
+Requirements
+TXT 
+
+bro content generate ke baad jab pdf ya docs export kiya aur un file ko khola to uske andar kuch nhi aaya
+Jun 2
+
+Samajh gaya bhai — problem ye hai ki frontend result-box ka innerText bhej raha hai jo already parsed/displayed text hai, but export.py ka parse_sections() usme INSTAGRAM:, LINKEDIN: keywords dhundh raha hai jo wahan hain hi nahi!
+
+Fix karta hoon — raw content store karna hoga aur wahi export ko bhejna hoga.
+Read current script.js
+
+Clearly dekh raha hoon — result variable sirf generate ke andar hai, export function ko milta hi nahi. Fix:
+Ran a command, read a file
+
+Root cause aur fix ekdum clear hai:
+
+Problem kya thi:
+
+    Export button result-box ka innerText bhej raha tha — jisme sirf display text tha
+    export.py ka parse_sections() INSTAGRAM:, LINKEDIN: keywords dhundh raha tha — jo displayed text mein hote hi nahi
+
+Fix kya kiya:
+
+    let rawResult = "" — ek global variable banaya
+    Generate hone ke baad rawResult = data.result — poora raw AI response store ho jaata hai
+    Export button ab rawResult bhejta hai backend ko — jisme INSTAGRAM:, LINKEDIN: sab keywords hote hain
+    export.py correctly parse karke PDF/DOCX banata hai
+
+Bas static/script.js replace karo — kaam ho jaayega! 🎯
+Script
+JS 
+
+one last help bass 
+
+dekh jo ye content generate hua hai to visible nhi hai text bhot chhota hai dikh nhi rh a to text thoda bada karde aur jo ye content ki heading hai na insta, twiter, linkedin inka text bi bada karde
+Jun 2
+
+Dekh liya bhai — fix karta hoon!
+Edited 3 files, read a file
+
+3 cheezein badli:
+
+    Card heading (Instagram Post, LinkedIn Post etc.) — 13px #94a3b8 se → 15px #e2e8f0 — ab bold aur bright white dikhega
+    Body text — 13.5px se → 15px — clearly padhne layak
+    Platform badge (INSTAGRAM, LINKEDIN etc.) — thoda bada padding ke saath
+
+Replace karo templates/index.html — ab text clearly dikhega! ✅
+Index
+Code · HTML 
+
+ab bhi text height choti hai visible nhi hai easily yrr aur bada kar
+Jun 2
+
+max-height badha deta hoon — abhi 180px bahut kam hai!
+Edited a file, read a file
+
+max-height bilkul hata diya — ab card apne aap content ke hisaab se bada hoga, poora text ek baar mein dikhenga, koi scroll nahi! ✅
+Index
+Code · HTML 
+
+aur ye bata ki ye project ka kaam kya hota hai jo mai bana rha hu kaha use hota hai kin logo ko iski jarurat hoti hai ky amai koi real world problem solve kar rha is project ko github pe daalu  to kya log ayeenge jaise ek mere dost egaing se related kuch dala tha jisse game banane me help milti ai github pe ek ne use 50$ diye batao sala to mujhe bhi chchiye
+Jun 2
+
+😂 Bhai seedha bolunga —
+Ye project kya karta hai?
+
+AI Content Repurposer — ek topic/URL do, aur woh automatically banata hai:
+
+    Instagram post
+    LinkedIn post
+    Twitter thread
+    Blog post
+
+Matlab 1 input → 4 platforms ka content — seconds mein.
+Real World Mein Kaun Use Karta Hai?
+
+Ye log daily struggle karte hain iske bina:
+
+    Content creators / YouTubers — video banao, uska caption likhne mein 1 ghanta waste
+    Small business owners — apni shop ka promotion karna hai par copywriter afford nahi
+    Freelance marketers — 10 clients ka content manage karna hai akele
+    Startup founders — product launch karna hai, social media pe time nahi
+    Coaches & educators — knowledge hai, likhna nahi aata
+
+Kya Real Problem Solve Ho Rahi Hai?
+
+Haan bhai — time aur paise dono.
+
+Ek professional copywriter ₹500–2000 per post leta hai. Tumhara tool ye free mein karta hai 10 seconds mein.
+GitHub Pe Daloge Toh Log Aayenge?
+
+Haan — but sirf dalने se nahi aayenge. Seedha bolta hoon:
+
+Tere dost ka wala project star aaya because usne problem clearly explain ki — README mein likha tha "ye kya solve karta hai, kaise use karo, demo dekho."
+
+Iske liye karna hoga:
+
+    Acha README — GIF/screenshot daalo, ek line mein batao kya karta hai
+    Live Demo — Render ya Railway pe free deploy karo — log bina clone kiye try karein
+    Sahi jagah post karo:
+        Reddit: r/SideProject, r/Python, r/artificial
+        Twitter/X: "Built this in X days" wala thread
+        Product Hunt pe launch karo
+        Indie Hackers pe post karo
+
+Paise Kahan Se Aayenge?
+
+Tere dost ko sponsorship/donation mila. Tujhe bhi milega agar:
+
+    README mein "Buy me a coffee" ya GitHub Sponsors button lagao
+    Ya isko SaaS bana do — free mein 10 generations/day, premium mein unlimited — ₹199/month
+
+Honestly bhai — ye project genuinely useful hai. Bas presentation aur distribution pe dhyan do. Code toh already solid hai! 🔥
+
+bass mujhe isse paisa hi kamana hai ab bata kya karna hoga
+Jun 2
+
+Bhai seedha point pe aata hoon 😄
+Sabse Fast Paise Wala Route
+Option 1: Gumroad pe bech do (Sabse Aasaan - 1 din mein)
+
+Ye tool ko downloadable product bana do Gumroad pe:
+
+    Price rakho $9 - $19 (one time)
+    "AI Content Repurposer - Self Hosted Tool" naam do
+    YouTube tutorial banao - "How to make viral content in 10 seconds"
+    Gumroad link description mein daalo
+
+Reality check: 10 log bhi khareedein = $90-190 pehle hafte
+Option 2: SaaS bana do (Thoda time lagega - 2-3 hafte)
+
+Abhi ye sirf local chalta hai. Isko online karo:
+
+Kya add karna hoga:
+
+    User login/signup
+    Free plan: 5 generations/day
+    Pro plan: Unlimited - $9/month
+
+Stack:
+
+Flask + SQLite + Stripe payments
+Deploy on Railway (free)
+
+10 paying users = $90/month recurring — aur ye badhta rehta hai
+Option 3: Freelance pe becho (Aaj se shuru)
+
+Fiverr/Upwork pe gig banao:
+
+    "I will repurpose your content for all social media platforms using AI"
+
+Price: $15-30 per order
+
+Tum backend pe apna tool use karo, client ko lagega tum manually kar rahe ho 😂
+
+Ye sabse fast cash hai — aaj gig banao, kal order aa sakta hai
+Meri Honest Advice
+
+Bhai seedha bolunga — Option 3 pehle karo.
+
+Kyun? Kyunki:
+
+    Aaj se paise aa sakte hain
+    Koi extra coding nahi
+    Validate ho jaayega ki log paise dene ko tayyar hain
+
+Phir wahi paise se Option 2 banao slowly.
+
+Ek kaam abhi karo — Fiverr pe account hai? 🎯
+
+pehle to ise github pe dalta hu taki mere dost ki tarah mujhe bhi paisa mile
+Jun 2
+
+Bhai sach bolunga 😄
+
+Tere dost ko $50 isliye mila kyunki uska project developers ke kaam aata tha — unhone use karke apna game banaya, toh donation diya.
+
+Tera project end users ke liye hai — content creators, marketers — ye log GitHub pe nahi aate. Ye log Instagram, YouTube, Reddit pe hote hain.
+GitHub pe daal zaroor — but expect mat karo wahan se paise aayenge
+
+GitHub pe daalne ke real fayde:
+
+    Portfolio mein dikhega
+    Credibility banti hai jab Fiverr/Gumroad pe link share karo
+    Koi developer fork kare toh star milega
+
+Agar GitHub Star/Donation chahiye toh
+
+Tera project developers ke liye useful banana hoga — jaise:
+
+    Groq API ka clean wrapper
+    Multi-platform content generation ka open source tool
+    Apna khud ka MCP server banana is tool ka
+
+Tabhi developers aayenge aur donate karenge.
+Seedha Baat
+Platform	Audience	Paise milenge?
+GitHub	Developers	Shayad, slowly
+Fiverr	Clients	Haan, fast
+Gumroad	General users	Haan, if marketed
+Reddit/Twitter	Viral hone pe	Haan, if lucky
+
+Mera suggestion:
+
+    GitHub pe daal do — README achha likho, live demo link daalo
+    Saath mein Fiverr gig bhi banao aaj
+
+Dono parallel chalao — GitHub se credibility, Fiverr se actual cash. 🎯
+
+Fiverr pe account hai ya banana padega?
+
+ye mera fiverr hai
+Jun 2
+
+Bhai Fiverr account toh hai — but seedha bolunga 😄
+Problem kya hai abhi
+
+Tere 3 gigs hain — React website wale — aur 0 orders, 0 clicks.
+
+Ye gigs bahut competitive niche mein hain — wahan lakho sellers hain already.
+AI Content Repurposer wala gig add kar — ye different hai
+
+Abhi Fiverr pe AI content repurposing niche mein competition bahut kam hai compared to React websites.
+
+Nayi gig title:
+
+    "I will repurpose your content into viral Instagram, LinkedIn and Twitter posts using AI"
+
+Description mein likho:
+
+    1 topic/URL do → 4 platforms ka ready content milega
+    Instagram caption + hashtags
+    LinkedIn professional post
+    Twitter thread
+    Blog post
+    PDF/DOCX export
+
+Pricing:
+
+    Basic $10 → 1 topic, 4 posts
+    Standard $20 → 5 topics, same day delivery
+    Premium $40 → 10 topics + revisions
+
+Profile bhi update kar
+
+Abhi likha hai "Frontend Web Developer" — isko badal:
+
+    "AI Tools Developer | Content Automation Specialist"
+
+About section mein mention kar ki tu AI tools banata hai.
+Ek kaam abhi karo
+
+"Create a New Gig" pe click kar — gig title, description aur pricing set kar.
+
+Chahiye toh poora gig description likha ke deta hoon — copy paste kar dena seedha Fiverr pe. Bolunga? 🎯
+
+sunn github ke liye gaandfaad readme de jara jo sabke smjh me aajaye ye karta kya hai
+Jun 2
+
+Abhi banata hoon — ekdum killer README! 🔥
+Ran 2 commands, read a file
+
+Le bhai — dono files ready hain! 🔥
+Ab GitHub pe daalne ka process:
+
+Step 1 — .gitignore file banao project mein:
+
+venv/
+.env
+__pycache__/
+*.pyc
+
+Step 2 — Repo banao GitHub pe, naam rakho:
+
+ai-content-repurposer
+
+Step 3 — Push karo:
+bash
+
+git init
+git add .
+git commit -m "🚀 Initial release - AI Content Repurposer"
+git push origin main
+
+Step 4 — README mein YOUR_USERNAME apne GitHub username se replace karna mat bhoolna!
+README mein kya daala jo dusron se alag hai:
+
+    Problem section — relatable pain point — log padhte hi connect karenge
+    Demo section — actual input/output example — log samjhenge kya milega
+    5 minute setup — koi bhi run kar sakta hai
+    Use cases table — har type ka user dekhe ki ye uske kaam ka hai
+    Hinglish friendly — simple language, koi bhi samjhe
+
+Ek kaam aur karo — project ka 1 screenshot README mein add karo ## Demo ke niche — woh sabse zyada attract karta hai! 📸
+Readme
+Document · MD 
+.env
+EXAMPLE 
+
+abhi jaisa ye hai usse hi paisa kaise kamau
+Jun 2
+
+Bhai seedha point pe aata hoon 😄
+Abhi Jaise Hai — Isse Paise Kaise Kamao
+Fiverr Gig Banao — Aaj Raat
+
+Ye exact gig title copy karo:
+
+    "I will repurpose your content into viral Instagram, LinkedIn and Twitter posts using AI"
+
+Pricing:
+
+Basic    $10  →  1 topic, 4 platforms, same day
+Standard $20  →  5 topics, PDF export included  
+Premium  $40  →  10 topics + DOCX + revisions
+
+Client order kare → tu apne tool mein run kare → PDF/DOCX export kare → deliver kare
+
+Tu 10 minutes mein deliver kar sakta hai jo client ko lagega 2 ghante ka kaam hai 😄
+Gig Description — Copy Paste Kar
+
+Are you struggling to create content for 
+multiple platforms every day?
+
+I will turn your ONE topic or article into:
+
+✅ Instagram Caption + Hashtags
+✅ LinkedIn Professional Post  
+✅ Twitter/X Thread
+✅ Blog Post
+
+All content delivered in PDF + Word file.
+
+Just give me:
+→ Your topic / article / YouTube URL
+→ Preferred tone (professional/funny/viral)
+
+I'll deliver within 24 hours.
+
+Perfect for:
+- Business owners
+- Content creators  
+- Coaches & educators
+- Marketing agencies
+
+Pehla Order Kaise Aayega
+
+Sabse fast way:
+
+Apne WhatsApp contacts, Instagram followers mein post karo:
+
+    "Bhai/Didi — social media ke liye content chahiye? Instagram, LinkedIn, Twitter sab ek saath bana ke deta hoon PDF mein — sirf ₹299 mein. DM karo"
+
+Pehle 2-3 orders free ya ₹99 mein karo — review lao — phir price badhao.
+
+Fiverr pe bina reviews ke order nahi aata — isliye pehle apne network se shuru karo. 🎯
+
+Gig banane mein help chahiye — description, tags, category sab? Bol bhai! 🚀
+
+bata yaar kloi solid gaandfaad idea ki mai is projrct se paisa kama du kuchj
+Jun 2
+
+Bhai seedha aur solid bolta hoon 😄
+Sabse Solid Idea — "Done For You" Service
+Ye kya hai?
+
+Client tujhe topic deta hai → tu tool run karta hai → client ko ready content milta hai
+
+Tu kuch nahi karta manually — tool sab karta hai
+Target Client — Local Businesses
+
+Ye log daily struggle karte hain content ke liye aur paise dene ko tayyar hain:
+
+🏋️ Gym owners
+🍕 Restaurant owners  
+💆 Salon/Spa owners
+🏠 Real estate agents
+👨‍💻 Coaches & consultants
+
+Inke paas time nahi content likhne ka — tu solution hai
+Exact Plan — Week by Week
+Week 1 — Pehle 3 Clients Dhundo (Free mein)
+
+Apne aas paas ki 5 local shops mein jao physically
+
+Ye script bol:
+
+    "Bhaiya aapka Instagram/Facebook hai? Main aapke liye ek hafte ka content free mein bana ke deta hoon — try karke dekho"
+
+Free kyun? — Kyunki:
+
+    Proof milega ki tool kaam karta hai
+    Testimonial milega
+    Referrals aayenge
+
+Week 2 — ₹999/month Package Becho
+
+3 clients ko bol:
+
+    "Bhaiya free trial kaisa laga? Ab main ye monthly kar sakta hoon — sirf ₹999/month mein — 30 posts/month"
+
+30 posts = tu 3 ghante mein bana sakta hai tool se
+Week 3-4 — Scale Karo
+
+5 clients × ₹999 = ₹4,995/month
+10 clients × ₹999 = ₹9,990/month
+20 clients × ₹999 = ₹19,980/month
+
+Packages Jo Becho
+
+🥉 Starter  ₹999/month
+   → 30 posts/month
+   → 3 platforms
+   → PDF delivery
+
+🥈 Growth   ₹1,999/month  
+   → 60 posts/month
+   → 4 platforms
+   → PDF + DOCX
+   → WhatsApp delivery
+
+🥇 Premium  ₹3,999/month
+   → Unlimited posts
+   → All platforms
+   → Direct posting help
+   → Weekly call
+
+Honestly Bhai
+
+Tere paas already:
+
+    ✅ Working tool hai
+    ✅ PDF/DOCX export hai
+    ✅ Fiverr account hai
+    ✅ Technical knowledge hai
+
+Sirf ek cheez missing hai — pehla client
+
+Aaj raat 5 local business ke Instagram pe DM karo ye message:
+
+    "Hi! Main AI tools se social media content banata hoon — aapke business ke liye ek hafte ka free content bana ke deta hoon, try karke dekho 🙂"
+
+5 mein se 1 zaroor reply karega — wahi tera pehla client hoga
+
+Bas itna karna hai aaj. Baki sab baad mein. 🎯
+
+iska solution bata bhai jaldi se kya mai tujhe apna app.py , yt.py and generate.py ka code bheju
+8:51 AM
+
+Haan bhai bhej — teeno files bhej do!
+
+Problem clear dikh rahi hai — YouTube transcript fetch nahi ho raha kyunki YouTube cloud IPs block kar raha hai. Code dekh ke exact fix bata deta hoon. 🔥
+
+from flask import Flask, render_template, request, jsonify, send_file
+import io
+from utils.generator import generate_content
+from utils.export import generate_pdf, generate_docx
+app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("index.html")
+@app.route("/generate", methods=["POST"])
+def generate():
+    try:
+        data       = request.get_json()
+        user_input = data.get("url")
+        tone       = data.get("tone")
+        result     = generate_content(user_input, tone)
+        return jsonify({"result": result})
+    except Exception as e:
+        return jsonify({"result": f"ERROR: {str(e)}"})
+@app.route("/export/pdf", methods=["POST"])
+def export_pdf():
+    try:
+        data    = request.get_json()
+        content = data.get("content", "")
+        pdf_bytes = generate_pdf(content)
+        return send_file(
+            io.BytesIO(pdf_bytes),
+            mimetype="application/pdf",
+            as_attachment=True,
+            download_name="generated-content.pdf",
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+@app.route("/export/docx", methods=["POST"])
+def export_docx():
+    try:
+        data    = request.get_json()
+        content = data.get("content", "")
+        docx_bytes = generate_docx(content)
+        return send_file(
+            io.BytesIO(docx_bytes),
+            mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            as_attachment=True,
+            download_name="generated-content.docx",
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+if __name__ == "__main__":
+    app.run(debug=True)
+
+app.py
+
+import os
+import re
+from dotenv import load_dotenv
+from groq import Groq
+from youtube_transcript_api import YouTubeTranscriptApi
+load_dotenv()
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
+)
+def get_video_id(url):
+    patterns = [
+        r"v=([0-9A-Za-z_-]{11})",
+        r"youtu\.be\/([0-9A-Za-z_-]{11})"
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, url)
+        if match:
+            return match.group(1)
+    return None
+def get_youtube_transcript(url):
+    video_id = get_video_id(url)
+    if not video_id:
+        raise Exception("Invalid YouTube URL")
+    try:
+        transcript = YouTubeTranscriptApi().fetch(video_id)
+        text = " ".join(
+            [item.text for item in transcript]
+        )
+        return text
+    except Exception as e:
+        raise Exception(f"Transcript not available: {str(e)}")
+def generate_content(
+    user_input,
+    tone
+):
+    content = user_input
+    if (
+        "youtube.com" in user_input
+        or
+        "youtu.be" in user_input
+    ):
+        try:
+            content = get_youtube_transcript(
+                user_input
+            )
+            content = content[:8000]
+        except Exception as e:
+            return f"""
+INSTAGRAM:
+Transcript Error: {str(e)}
+LINKEDIN:
+Transcript Error: {str(e)}
+TWITTER:
+Transcript Error: {str(e)}
+BLOG:
+Transcript Error: {str(e)}
+"""
+    prompt = f"""
+You are a professional content repurposing expert.
+Selected Tone:
+{tone}
+Make all content match this tone.
+IMPORTANT:
+Return response ONLY in this exact format.
+INSTAGRAM:
+<instagram post>
+LINKEDIN:
+<linkedin post>
+TWITTER:
+<twitter thread>
+BLOG:
+<blog post>
+Do not add any extra headings.
+Do not use markdown.
+Do not use bold text.
+Do not write anything outside these sections.
+Content:
+{content}
+"""
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.7,
+            max_tokens=1200
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"""
+INSTAGRAM:
+ERROR: {str(e)}
+LINKEDIN:
+ERROR: {str(e)}
+TWITTER:
+ERROR: {str(e)}
+BLOG:
+ERROR: {str(e)}
+"""
+generator.py
+
+from youtube_transcript_api import YouTubeTranscriptApi
+import re
+def get_video_id(url):
+    patterns = [
+        r"youtube\.com/watch\?v=([^&]+)",
+        r"youtu\.be/([^?&]+)"
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, url)
+        if match:
+            return match.group(1)
+    return None
+def get_transcript(url):
+    video_id = get_video_id(url)
+    if not video_id:
+        return None
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    text = " ".join([item["text"] for item in transcript])
+    return text
+youtube.py 
+
+ye hai tino file ab karde jara update badiya sa ek baar me 
+index.html to ni chiye
+8:55 AM
+
+Code dekh liya bhai. Problem crystal clear hai:
+
+YouTubeTranscriptApi cloud IPs block karta hai — local pe kaam karta hai, server pe nahi.
+
+Solution — cookies-based authentication add karo. Fix karta hoon teeno files:
+Created 3 files, ran a command, read a file
+
+Teeno files ready hain! Replace karo utils/ folder mein.
+Kya fix kiya aur kyun:
+
+Root cause — YouTubeTranscriptApi cloud/server IPs se block hota hai YouTube ke through.
+
+youtube.py mein:
+
+    3 fallback tries — pehle English → Hindi → koi bhi language auto-generated
+    Saaf error messages — user ko exact samjhega kya hua
+    Naya .fetch() aur purana dict dono handle karta hai
+
+generator.py mein:
+
+    Model upgrade kiya — llama-3.1-8b se llama-3.3-70b-versatile — bahut better content aayega
+    max_tokens 1200 se 2000 kiya — poora content aayega, cut nahi hoga
+    YouTube fail hone pe friendly error dikhega user ko
+
+Honest baat — YouTube transcript ka permanent fix
+
+YouTube actively block karta hai server IPs ko. Iska 100% reliable solution nahi hai bina paid proxy ke.
+
+Best solution abhi ke liye — error message mein user ko clearly batao:
+
+    "YouTube URL kaam nahi kar raha — seedha topic paste karo jaise 'Python for beginners'"
+
+Ye already add kar diya hai code mein! 🎯
+Youtube
+PY 
+Generator
+PY 
+App
+PY 
+
+ab save kaise karu taki github pe update ho jaye aur github vercel se connenct hai to vaha bhi redeploy ho jaye
+9:01 AM
+
+Simple hai bhai — ye commands run karo terminal mein:
+VS Code Terminal mein ye likho:
+bash
+
+git add .
+git commit -m "fix: YouTube transcript error + better AI model"
+git push origin main
+
+Bas itna! 🎯
+Kya hoga automatically:
+
+git push → GitHub update ✅
+GitHub → Vercel auto-detect ✅  
+Vercel → Auto redeploy ✅
+2-3 minutes mein live ✅
+
+Ek important cheez ⚠️
+
+Vercel pe environment variable check karo — GROQ_API_KEY wahan bhi honi chahiye.
+
+Vercel Dashboard → Project → Settings → Environment Variables → dekho GROQ_API_KEY hai ya nahi
+
+Agar nahi hai toh wahan add karo — warna production pe kaam nahi karega.
+
+Bas itna — push karo aur 2 minute wait karo! 🚀
+9:03 AM
+
+GROQ_API_KEY already hai — perfect! ✅
+
+Ab bas terminal mein ye 3 commands:
+bash
+
+git add .
+git commit -m "fix: YouTube transcript error + better AI model"
+git push origin main
+
+Push hote hi Vercel automatically redeploy karega — 2-3 minutes mein live ho jaayega!
+
+Vercel pe Deployments tab mein dekh sakta hai progress. 🚀
+
+abey ye dekh error hi aari hai yaar kuch solution bata yrr aur gandu tune isme hinglish ka use kyu kiya hai english mehona chiye sab ka sab
+9:04 AM
+
+Bhai 2 problems hain:
+
+    YouTube transcript block — Vercel ke IPs YouTube block karta hai, koi fix nahi isko
+    Hinglish error messages — abhi fix karta hoon
+
+Permanent Solution — YouTube URL support hatao, clean error do
+
+Vercel/cloud pe YouTube transcript kabhi kaam nahi karega bina paid proxy ke. Best solution — user ko clearly batao ki seedha topic paste karo.
+Fix generator.py - remove YouTube, clean English errors
+
+Ab input box ka placeholder bhi update karo:
+Update placeholder text to remove YouTube URL mention
+
+Also subtitle update karo:
+Edited a file, read a file
+
+Now run karo:
+bash
+
+git add .
+git commit -m "fix: remove YouTube support, clean error messages"
+git push origin main
+
+Kya fix kiya:
+
+    YouTube URL detection hataya — Vercel pe ye kabhi kaam nahi karega, clean English error deta tha
+    Saari error messages pure English mein
+    Placeholder updated — user confuse nahi hoga YouTube URL daalne ke liye
+    Subtitle bhi update kiya
+
+Reality — YouTube transcript ka koi free cloud solution nahi hai. Agar future mein add karna hai toh ScraperAPI ya Apify ka paid proxy lagega. Abhi topic/article paste karna best option hai. 🎯
+Generator
+PY 
+Index
+Code · HTML 
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +1146,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
+ 
 :root{
   --bg:#02040a;
   --surface:rgba(255,255,255,0.04);
@@ -17,7 +1156,7 @@
   --cyan:#06d6f5;
   --pink:#f72585;
 }
-
+ 
 body{
   background:var(--bg);
   font-family:'Space Grotesk',sans-serif;
@@ -25,7 +1164,7 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 }
-
+ 
 /* ─── ANIMATED NOISE OVERLAY ─── */
 body::after{
   content:'';
@@ -33,7 +1172,7 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events:none;z-index:999;opacity:.6;
 }
-
+ 
 /* ─── MESH GRADIENT BG ─── */
 .bg-mesh{
   position:fixed;inset:0;z-index:0;overflow:hidden;
@@ -46,12 +1185,12 @@ body::after{
 .m2{width:500px;height:500px;background:rgba(147,51,234,.18);top:20%;right:-100px;animation-delay:-3s;}
 .m3{width:400px;height:400px;background:rgba(6,214,245,.12);bottom:-100px;left:30%;animation-delay:-6s;}
 .m4{width:300px;height:300px;background:rgba(247,37,133,.12);bottom:10%;right:20%;animation-delay:-9s;}
-
+ 
 @keyframes drift{
   0%{transform:translate(0,0) scale(1);}
   100%{transform:translate(40px,30px) scale(1.1);}
 }
-
+ 
 /* ─── GRID LINES ─── */
 .bg-grid{
   position:fixed;inset:0;z-index:0;
@@ -61,14 +1200,14 @@ body::after{
   background-size:80px 80px;
   mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%);
 }
-
+ 
 /* ─── WRAPPER ─── */
 .wrap{
   position:relative;z-index:2;
   max-width:780px;margin:0 auto;
   padding:70px 28px 100px;
 }
-
+ 
 /* ─── EYEBROW ─── */
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
@@ -87,10 +1226,10 @@ body::after{
   0%,100%{transform:scale(1);opacity:1;}
   50%{transform:scale(1.6);opacity:.4;}
 }
-
+ 
 /* ─── HERO TITLE ─── */
 .hero{text-align:center;margin-bottom:56px;}
-
+ 
 .title-main{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(72px,12vw,120px);
@@ -106,12 +1245,12 @@ body::after{
   0%{background-position:0%;}
   100%{background-position:200%;}
 }
-
+ 
 .title-sub{
   font-size:17px;font-weight:300;color:#475569;
   max-width:460px;margin:0 auto;line-height:1.65;
 }
-
+ 
 /* ─── MAIN CARD ─── */
 .card{
   background:rgba(255,255,255,0.03);
@@ -125,13 +1264,13 @@ body::after{
     0 0 80px rgba(59,110,248,.08);
   position:relative;overflow:hidden;
 }
-
+ 
 /* top glow bar */
 .card::before{
   content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   background:linear-gradient(to right,transparent,rgba(59,110,248,.6),rgba(147,51,234,.5),transparent);
 }
-
+ 
 /* ─── INPUT ─── */
 .field-wrap{position:relative;margin-bottom:18px;}
 .field-icon{
@@ -156,14 +1295,14 @@ body::after{
   box-shadow:0 0 0 4px rgba(59,110,248,.1),0 0 30px rgba(59,110,248,.08);
   background:rgba(59,110,248,.05);
 }
-
+ 
 /* ─── TONE PILLS ─── */
 .tone-label{
   font-size:11px;font-weight:600;color:#334155;
   letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;
 }
 .tone-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
-
+ 
 .tone-pill{
   display:flex;align-items:center;gap:8px;
   padding:9px 20px;border-radius:999px;
@@ -185,13 +1324,13 @@ body::after{
   color:#c084fc;
   box-shadow:0 0 20px rgba(147,51,234,.15);
 }
-
+ 
 /* hidden select */
 #tone{display:none;}
-
+ 
 /* ─── ACTION ROW ─── */
 .action-row{display:flex;gap:12px;flex-wrap:wrap;}
-
+ 
 .btn-generate{
   background:linear-gradient(135deg,#3b6ef8,#9333ea);
   border:none;border-radius:14px;
@@ -211,7 +1350,7 @@ body::after{
 .btn-generate:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(59,110,248,.45),0 0 80px rgba(147,51,234,.2);}
 .btn-generate:active{transform:translateY(0);}
 .btn-generate:disabled{opacity:.5;cursor:not-allowed;transform:none;}
-
+ 
 .btn-ghost{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.08);
@@ -222,7 +1361,7 @@ body::after{
   transition:all .2s;
 }
 .btn-ghost:hover{border-color:rgba(255,255,255,.18);color:#94a3b8;}
-
+ 
 /* ─── LOADING ─── */
 #loading{
   display:none;align-items:center;gap:14px;
@@ -238,13 +1377,13 @@ body::after{
   animation:rotate .65s linear infinite;
 }
 @keyframes rotate{to{transform:rotate(360deg);}}
-
+ 
 /* ─── DIVIDER ─── */
 .glow-line{
   height:1px;margin:36px 0;
   background:linear-gradient(to right,transparent,rgba(59,110,248,.4),rgba(147,51,234,.3),rgba(6,214,245,.2),transparent);
 }
-
+ 
 /* ─── SECTION TITLE ─── */
 .sec-title{
   font-family:'Bebas Neue',sans-serif;
@@ -256,7 +1395,7 @@ body::after{
   content:'';flex:1;height:1px;
   background:linear-gradient(to right,rgba(255,255,255,.08),transparent);
 }
-
+ 
 /* ─── RESULT CARDS ─── */
 .result-card{
   display:none;
@@ -274,7 +1413,7 @@ body::after{
 .result-card:nth-child(2){animation-delay:.06s;}
 .result-card:nth-child(3){animation-delay:.12s;}
 .result-card:nth-child(4){animation-delay:.18s;}
-
+ 
 .rc-head{
   display:flex;justify-content:space-between;align-items:center;
   padding:11px 16px;
@@ -294,7 +1433,7 @@ body::after{
 .tag-li{background:rgba(6,182,212,.1);color:#67e8f9;border:1px solid rgba(6,182,212,.18);}
 .tag-tw{background:rgba(59,130,246,.1);color:#93c5fd;border:1px solid rgba(59,130,246,.18);}
 .tag-bl{background:rgba(139,92,246,.1);color:#c4b5fd;border:1px solid rgba(139,92,246,.18);}
-
+ 
 .copy-sm{
   background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);
   border-radius:8px;padding:5px 13px;
@@ -303,7 +1442,7 @@ body::after{
   font-family:'Space Grotesk',sans-serif;
 }
 .copy-sm:hover{color:#94a3b8;border-color:rgba(255,255,255,.16);}
-
+ 
 .rc-body{
   padding:16px 20px;
   line-height:1.8;
@@ -317,7 +1456,7 @@ body::after{
 </style>
 </head>
 <body>
-
+ 
 <div class="bg-mesh">
   <span class="m1"></span>
   <span class="m2"></span>
@@ -325,24 +1464,24 @@ body::after{
   <span class="m4"></span>
 </div>
 <div class="bg-grid"></div>
-
+ 
 <div class="wrap">
-
+ 
   <div class="hero">
     <div style="display:flex;justify-content:center;">
       <div class="eyebrow"><span class="pulse-dot"></span>Powered by Groq AI</div>
     </div>
     <h1 class="title-main">AI CONTENT<br>REPURPOSER</h1>
-    <p class="title-sub">Turn topics, articles &amp; YouTube videos into viral social media content — instantly.</p>
+    <p class="title-sub">Turn any topic or article into viral social media content — instantly.</p>
   </div>
-
+ 
   <div class="card">
-
+ 
     <div class="field-wrap">
       <span class="field-icon">🔗</span>
-      <input id="content-url" type="text" class="field" placeholder="Paste a topic, YouTube URL or article URL...">
+      <input id="content-url" type="text" class="field" placeholder="Paste a topic or article text... (e.g. 'Benefits of morning exercise')">
     </div>
-
+ 
     <p class="tone-label">Choose Tone</p>
     <div class="tone-row" id="tone-row">
       <div class="tone-pill active" data-val="Professional" onclick="setTone(this)">💼 Professional</div>
@@ -358,7 +1497,7 @@ body::after{
       <option value="Motivational">Motivational</option>
       <option value="Marketing">Marketing</option>
     </select>
-
+ 
     <div class="action-row">
       <button id="generate-btn" class="btn-generate">🚀 Generate Content</button>
       <button class="btn-ghost" onclick="copyContent()">📋 Copy All</button>
@@ -366,16 +1505,16 @@ body::after{
       <button class="btn-ghost" onclick="exportFile('pdf')" id="btn-pdf">📄 Export PDF</button>
       <button class="btn-ghost" onclick="exportFile('docx')" id="btn-docx">📑 Export DOCX</button>
     </div>
-
+ 
     <div id="loading">
       <div class="spin"></div>
       Generating your content — just a few seconds...
     </div>
-
+ 
     <div class="glow-line"></div>
-
+ 
     <div class="sec-title">Generated Content</div>
-
+ 
     <div id="result-box">
       <div id="instagram-card" class="result-card">
         <div class="rc-head">
@@ -384,7 +1523,7 @@ body::after{
         </div>
         <div id="instagram-content" class="rc-body"></div>
       </div>
-
+ 
       <div id="linkedin-card" class="result-card">
         <div class="rc-head">
           <div class="rc-label">💼 LinkedIn Post <span class="platform-tag tag-li">LinkedIn</span></div>
@@ -392,7 +1531,7 @@ body::after{
         </div>
         <div id="linkedin-content" class="rc-body"></div>
       </div>
-
+ 
       <div id="twitter-card" class="result-card">
         <div class="rc-head">
           <div class="rc-label">🐦 Twitter Thread <span class="platform-tag tag-tw">Twitter / X</span></div>
@@ -400,7 +1539,7 @@ body::after{
         </div>
         <div id="twitter-content" class="rc-body"></div>
       </div>
-
+ 
       <div id="blog-card" class="result-card">
         <div class="rc-head">
           <div class="rc-label">📝 Blog Post <span class="platform-tag tag-bl">Blog</span></div>
@@ -409,10 +1548,10 @@ body::after{
         <div id="blog-content" class="rc-body"></div>
       </div>
     </div>
-
+ 
   </div>
 </div>
-
+ 
 <script>
 function setTone(el){
   document.querySelectorAll('.tone-pill').forEach(p=>p.classList.remove('active'));
@@ -482,3 +1621,5 @@ function showToast(msg,type){
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+ 
+
