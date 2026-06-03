@@ -36,15 +36,18 @@ def get_youtube_transcript(url):
     if not video_id:
         raise Exception("Invalid YouTube URL")
 
-    transcript = YouTubeTranscriptApi.get_transcript(
-        video_id
-    )
+    try:
 
-    text = " ".join(
-        [item["text"] for item in transcript]
-    )
+        transcript = YouTubeTranscriptApi().fetch(video_id)
 
-    return text
+        text = " ".join(
+            [item.text for item in transcript]
+        )
+
+        return text
+
+    except Exception as e:
+        raise Exception(f"Transcript not available: {str(e)}")
 
 
 def generate_content(
