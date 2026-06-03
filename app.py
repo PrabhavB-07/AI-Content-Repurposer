@@ -1,15 +1,14 @@
 from flask import Flask, render_template, request, jsonify, send_file
 import io
+import os
 from utils.generator import generate_content
 from utils.export import generate_pdf, generate_docx
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 @app.route("/generate", methods=["POST"])
 def generate():
@@ -17,16 +16,12 @@ def generate():
         data       = request.get_json()
         user_input = data.get("url", "").strip()
         tone       = data.get("tone", "Professional")
-
         if not user_input:
-            return jsonify({"result": _error_result("⚠️ Kuch toh daalo — topic ya URL!")}), 400
-
+            return jsonify({"result": _error_result("Please enter a topic or URL!")}), 400
         result = generate_content(user_input, tone)
         return jsonify({"result": result})
-
     except Exception as e:
         return jsonify({"result": _error_result(f"Server error: {str(e)}")}), 500
-
 
 @app.route("/export/pdf", methods=["POST"])
 def export_pdf():
@@ -43,7 +38,6 @@ def export_pdf():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 @app.route("/export/docx", methods=["POST"])
 def export_docx():
     try:
@@ -59,7 +53,6 @@ def export_docx():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 def _error_result(msg: str) -> str:
     return (
         f"INSTAGRAM:\n{msg}\n"
@@ -68,6 +61,6 @@ def _error_result(msg: str) -> str:
         f"BLOG:\n{msg}"
     )
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
